@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import MovieDetail from "../components/MovieDetail";
 import styles from "./Home.module.css";
 import NaviBar from "../components/NaviBar";
+import Footer from "../components/Footer";
 function Detail() {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
@@ -38,6 +39,7 @@ function Detail() {
           />
         )}
       </div>
+      <Footer />
     </>
   );
 }

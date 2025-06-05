@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import styles from "./Home.module.css";
+import NaviBar from "../components/NaviBar";
+import Footer from "../components/Footer";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -28,27 +30,31 @@ function Home() {
   //     });
   // }, []);
   return (
-    <div className={styles.container}>
-      {loading ? (
-        <div className={styles.loader}>
-          <h1>Loading...</h1>
-        </div>
-      ) : (
-        <div className={styles.movies}>
-          {movies.map((movie) => (
-            <Movie
-              id={movie.id}
-              key={movie.id}
-              year={movie.year}
-              medium_cover_image={movie.medium_cover_image}
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <NaviBar />
+      <div className={styles.container}>
+        {loading ? (
+          <div className={styles.loader}>
+            <h1>Loading...</h1>
+          </div>
+        ) : (
+          <div className={styles.movies}>
+            {movies.map((movie) => (
+              <Movie
+                id={movie.id}
+                key={movie.id}
+                year={movie.year}
+                medium_cover_image={movie.medium_cover_image}
+                title={movie.title}
+                summary={movie.summary}
+                genres={movie.genres}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <Footer / >
+    </>
   );
 }
 export default Home;
